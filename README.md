@@ -30,24 +30,39 @@ Se localiza el fichero de configuración principal (/etc/mysql/*mariadb.conf.d/5
 
 
 Se utiliza un editor para la modificación de las variables, en este case se hace uso de nano
+
 <img width="1025" height="42" alt="image" src="https://github.com/user-attachments/assets/9fce96a9-085c-45f7-b1fc-aaabdcc598e2" />
+
 Se modifica la variable max_connections a 50 y la bind-address a la ip del servidor para que el servicio MariaDB pueda escuchar conexiones desde esa red especifica.
+
 <img width="696" height="388" alt="image" src="https://github.com/user-attachments/assets/5c9d6e0a-645e-4b4b-b339-4ecb2102e940" />
+
 Se modifica la variable character-set-server a utf8mb4 y innodb_buffer_pool_size al 40% de la memoria RAM disponible, quedando con un total de 1638 megabytes de 8 gigabytes.
+
 <img width="589" height="339" alt="image" src="https://github.com/user-attachments/assets/6ca8c3a1-31b1-4b5f-99cc-81d1113a22aa" />
+
 Se reinicia el servicio y se procede a comprobar que los cambios se han aplicado con SHOW VARIABLES LIKE 'max_connections' y SHOW VARIABLES LIKE 'innodb_buffer_pool_size'.
+
 <img width="933" height="633" alt="image" src="https://github.com/user-attachments/assets/54c6055c-ae5d-4e93-9e91-d2bf0275fa20" />
+
 
 
 Procedimiento para recuperar la contraseña en caso de olvido:
 
 Se detiene el servicio y se aplica el comando para el modo recuperación
+
 <img width="1157" height="123" alt="image" src="https://github.com/user-attachments/assets/914e24b6-b920-4487-abeb-7430fb5bdfd8" />
+
 Se entra al servicio con usuario root.
+
 <img width="813" height="204" alt="image" src="https://github.com/user-attachments/assets/1ad92143-0c5e-4f41-84ab-98c85fc0b167" />
+
 Se recargan los privilegios y se cambia la contraseña del usuario root:
+
 <img width="787" height="265" alt="image" src="https://github.com/user-attachments/assets/efe09728-c67b-45de-aed0-efc1f7e232e7" />
+
 Se termina el servicio de mysql y se termina el proceso en segundo plano del modo reccuperación para iniciar nuevamente el servicio.
+
 <img width="1008" height="116" alt="image" src="https://github.com/user-attachments/assets/e596b60f-5dbf-4f5b-85dd-f70ea8703e01" />
 
 Una vez hecho este procedimiento el servicio se puede utilizar con normalidad.
